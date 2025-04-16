@@ -1,0 +1,14 @@
+{
+  "name": "echoglass",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/server",
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:server": "npm --workspace apps/server run dev"
+  }
+}

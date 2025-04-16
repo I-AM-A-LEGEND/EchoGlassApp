@@ -1,0 +1,79 @@
+#Below is the project structure you are required to follow this modify only when required 
+├── .editorconfig
+├── .env                         # Environment variables (API keys, DB credentials, etc.)
+├── .gitignore                   # Git ignore settings
+├── package.json                 # Root-level dependencies and workspace settings (if used)
+├── package-lock.json            # npm’s lock file for reproducible installs
+├── tsconfig.json                # Global TypeScript configuration (can extend per-app configs)
+├── README.md                    # Project overview and documentation
+
+├── apps
+│   ├── web                    # Frontend: Next.js application (TypeScript + Tailwind CSS)
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── tsconfig.json        # Frontend-specific TS configuration
+│   │   ├── next-env.d.ts        # Next.js environment types
+│   │   ├── next.config.js       # Next.js configuration file
+│   │   ├── tailwind.config.js   # Tailwind CSS configuration
+│   │   ├── postcss.config.js    # PostCSS configuration for Tailwind
+│   │   ├── public               # Public assets folder
+│   │   │   └── favicon.ico
+│   │   ├── app                  # Next.js App Router (for Next.js 13+)
+│   │   │   ├── layout.tsx       # Root layout component
+│   │   │   ├── page.tsx         # Home page example
+│   │   │   └── routes           # Additional grouped routes
+│   │   │       └── dashboard
+│   │   │           ├── layout.tsx  # Dashboard layout specific to this route
+│   │   │           └── page.tsx    # Dashboard page component
+│   │   ├── components           # Reusable UI components
+│   │   │   ├── RealTimeCaptionOverlay.tsx   # Renders live caption overlay
+│   │   │   └── ContextualAlert.tsx            # Displays real-time contextual alerts
+│   │   ├── hooks                # Custom hooks for state and real-time data
+│   │   │   └── useWebSocket.ts  # Hook for managing WebSocket connections
+│   │   ├── lib                  # Library code for integrations
+│   │   │   ├── terminator.ts    # Integration with the Terminator SDK
+│   │   │   └── agentKit.ts      # Integration with AgentKit for on-chain security
+│   │   ├── styles               # Styling files and Tailwind CSS utilities
+│   │   │   └── globals.css
+│   │   └── utils                # Shared utility functions
+│   │       └── helpers.ts
+│   └── server                 # Backend: Node.js + Express (TypeScript)
+│       ├── package.json
+│       ├── package-lock.json
+│       ├── tsconfig.json        # Backend-specific TypeScript config
+│       ├── src
+│       │   ├── index.ts         # Entry point for the Express server
+│       │   ├── config
+│       │   │   └── db.config.ts # Database configuration (e.g., Sequelize + SQLite)
+│       │   ├── database
+│       │   │   ├── migrations   # Sequelize migrations
+│       │   │   └── models       # Sequelize models (User, Session, etc.)
+│       │   ├── routes           # Route definitions
+│       │   │   ├── index.ts     # Aggregates and exports sub-routes
+│       │   │   ├── auth.routes.ts        # Routes for authentication endpoints
+│       │   │   └── multimodal.routes.ts  # Endpoints for processing audio/video/text
+│       │   ├── controllers      # Controllers to keep route logic clean
+│       │   │   ├── AuthController.ts     # Business logic for authentication
+│       │   │   └── MultimodalController.ts  # Business logic for multimodal data
+│       │   ├── services         # Domain-specific services
+│       │   │   ├── audioTranscriptionService.ts  # Real-time audio transcription processing
+│       │   │   ├── visionAnalysisService.ts      # Processing and analyzing camera feeds
+│       │   │   └── alertContextService.ts        # Generating contextual alerts for the UI
+│       │   ├── sockets          # Real-time data via WebSockets
+│       │   │   └── realtime.ts  # Socket.IO or similar WebSocket handler
+│       │   ├── middlewares      # Express middleware (e.g., authentication)
+│       │   │   └── authMiddleware.ts
+│       │   └── utils            # Backend utility functions (e.g., logging)
+│       │       └── logger.ts
+│       └── tests                # Backend tests (unit, integration, etc.)
+│           └── ...              
+       
+├── services                   # Optional microservices for advanced AI/ML tasks
+│   ├── advanced-ml            # Example: Python/Flask-based microservice for complex ML tasks
+│   │   ├── Dockerfile         # Containerization instructions
+│   │   ├── requirements.txt   # Python dependencies
+│   │   └── app.py             # Main Flask app for advanced ML processing
+│   └── ...                    
+└── packages                   # Optional internal shared packages or SDKs
+    ├── terminator-sdk         # SDK wrapping Terminator integration (if separated)
+    └── agentkit-sdk           # SDK for AgentKit on-chain functionality

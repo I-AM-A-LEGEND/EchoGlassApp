@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Add base styles or custom CSS variables here */
+body {
+  /* Example base style */
+  /* font-family: sans-serif; */
+}
