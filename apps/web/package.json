@@ -13,13 +13,13 @@
   "dependencies": {
     "@headlessui/react": "latest",
     "@heroicons/react": "^2.2.0",
-    "autoprefixer": "latest",
-    "next": "latest",
-    "postcss": "latest",
+    "autoprefixer": "^10.4.19",
+    "next": "^14.2.5",
+    "postcss": "^8.4.39",
     "react": "latest",
     "react-dom": "latest",
     "socket.io-client": "latest",
-    "tailwindcss": "latest",
+    "tailwindcss": "^3.4.6",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
