@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css"; // Ensure global styles are imported
 import AppInitializer from "../components/app-initializer"; // Import the initializer
-import Header from "../components/header"; // Import the Header component
+// Remove Header import - it will be added to the app layout later
+// import Header from "../components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "EchoGlass",
-  description: "AI Lens for the Deaf and Hard of Hearing",
+  title: "EchoGlass - AI Lens for Hearing Impaired", // Update title slightly
+  description: "Real-time captions, alerts, and context for the deaf and hard of hearing.", // Update description
 };
 
 /**
@@ -28,10 +29,12 @@ export default function RootLayout({
     <html lang="en">
       {/* Apply base background and text color */}
       <body className={`${inter.className} bg-gray-100 text-gray-900 min-h-screen flex flex-col`}>
-        {/* Wrap children with the initializer component */}
+        {/* AppInitializer might be moved later depending on whether
+            initialization is needed before authentication */}
         <AppInitializer>
-          <Header />
-          <main className="flex-grow container mx-auto p-4">{children}</main>
+          {/* Remove Header component from here */}
+          {/* The main content area will render landing page or app layout */}
+          {children}
         </AppInitializer>
       </body>
     </html>

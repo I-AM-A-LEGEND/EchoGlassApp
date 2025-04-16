@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import DashboardPage from '../app/dashboard/page';
+import AppPage from '../app/app/page';
 
 // Mock the child components since they are tested separately
 // and SettingsPanel uses Zustand which requires more setup for testing
@@ -22,11 +22,12 @@ jest.mock('../../components/dashboard/ActivityLog', () => ({
   ),
 }));
 
-describe('DashboardPage Component', () => {
+describe('AppPage Component', () => {
   beforeEach(() => {
-    render(<DashboardPage />);
+    render(<AppPage />);
   });
 
+  it('renders the main App heading', () => {
   it('renders the main Dashboard heading', () => {
     expect(screen.getByRole('heading', { name: /Dashboard/i, level: 1 })).toBeInTheDocument();
   });
